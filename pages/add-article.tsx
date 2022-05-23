@@ -1,28 +1,22 @@
-import { NextPage } from 'next';
-import Layout from '../components/Layout/Layout';
-import styles from '../styles/Home.module.css';
-import Head from 'next/head';
-import { Button } from '@material-ui/core';
-import { routes } from '../src/routes';
+import { NextPage } from "next";
+import Layout from "../components/Layout/Layout";
+import Head from "next/head";
+import { routes } from "../src/routes";
+import ArticleCreateForm from "../components/ArticleCreateForm/ArticleCreateForm";
+import { Container } from "@material-ui/core";
 
 const AddArticle: NextPage = () => {
   return (
     <Layout>
-      <div className={styles.container}>
-        <Head>
-          <title>{routes.addArticle.label}</title>
-        </Head>
+      <Head>
+        <title>{routes.addArticle.label}</title>
+      </Head>
 
-        <main className={styles.main}>
-          <Button variant="contained">Add Article</Button>
-        </main>
-
-        <footer className={styles.footer}>
-
-        </footer>
-      </div>
+      <Container maxWidth="sm">
+        <ArticleCreateForm />
+      </Container>
     </Layout>
-  )
-}
+  );
+};
 
-export default AddArticle
+export default AddArticle;
