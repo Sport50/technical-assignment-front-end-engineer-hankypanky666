@@ -5,6 +5,7 @@ import { Alert, AlertColor } from "@mui/material";
 export default function SimpleSnackbar(props: {
   type: AlertColor;
   open: boolean;
+  onClose: Function;
 }) {
   const [open, setOpen] = useState(false);
 
@@ -12,20 +13,17 @@ export default function SimpleSnackbar(props: {
     setOpen(props.open);
   }, [props.open]);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
   const handleClose = (event: SyntheticEvent | Event, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
 
     setOpen(false);
+    props.onClose();
   };
 
   return (
-    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar open={open} autoHideDuration={5000} onClose={handleClose}>
       <Alert
         elevation={4}
         onClose={handleClose}

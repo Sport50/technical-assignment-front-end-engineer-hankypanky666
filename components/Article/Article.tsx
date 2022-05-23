@@ -8,7 +8,7 @@ export default function ArticleComponent(props: Article) {
   const { email, title, dateCreated, bodyText } = props;
   const { _seconds } = dateCreated;
   const date = fromUnixTime(_seconds);
-  const formattedDate = format(fromUnixTime(_seconds), "dd MMM yyyy");
+  const formattedDate = format(fromUnixTime(_seconds), "dd MMM yyyy hh:mm");
 
   return (
     <Paper elevation={2}>

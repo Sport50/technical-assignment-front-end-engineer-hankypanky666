@@ -28,7 +28,11 @@ export default async function handler(
     }
 
     if (req.method === "GET") {
-      const articles = await db.collection("articles").get();
+      const articles = await db
+        .collection("articles")
+        .orderBy("dateCreated", "desc")
+        .limit(5)
+        .get();
       const articlesData = articles.docs.map((article) => article.data());
 
       return res.status(200).json({ success: true, data: articlesData });

@@ -188,6 +188,7 @@ export default function ArticleCreateForm() {
         </Box>
       </Box>
       <SimpleSnackbar
+        onClose={() => setSnackBarState((state) => ({ ...state, open: false }))}
         open={snackBarState.open}
         type={snackBarState.error ? "error" : "success"}
       ></SimpleSnackbar>

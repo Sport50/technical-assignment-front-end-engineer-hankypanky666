@@ -14,7 +14,6 @@ type Props = {
 };
 
 const Home: NextPage<Props> = (props: Props) => {
-  console.log(props);
   const { articles = [], errorCode } = props;
 
   if (errorCode) {
@@ -27,11 +26,13 @@ const Home: NextPage<Props> = (props: Props) => {
         <title>{routes.articles.label}</title>
       </Head>
 
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Box display="flex" flexDirection="column" gap="24px">
-          {articles.map((ar: Article) => (
-            <ArticleComponent {...ar} key={ar.title} />
-          ))}
+          {articles.length > 0
+            ? articles.map((ar: Article) => (
+                <ArticleComponent {...ar} key={ar.title} />
+              ))
+            : "Nothing to show"}
         </Box>
       </Container>
     </Layout>
