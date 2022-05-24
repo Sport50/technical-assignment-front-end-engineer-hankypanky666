@@ -18,7 +18,6 @@ const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
 export default function ArticleCreateForm() {
   const {
     control,
-    setValue,
     handleSubmit,
     reset,
     formState: { errors, isDirty, isValid },
@@ -153,13 +152,21 @@ export default function ArticleCreateForm() {
               variant="filled"
               label="Text Body"
               multiline
-              helperText={errors.bodyText ? errors.bodyText.message : null}
+              helperText={
+                errors.bodyText
+                  ? errors.bodyText.message
+                  : `Max ${field.value?.length}/5000`
+              }
               error={!!errors.bodyText}
               rows={24}
             />
           )}
           rules={{
             required: "Required field",
+            maxLength: {
+              value: 5000,
+              message: "Max is 5000",
+            },
           }}
         />
 

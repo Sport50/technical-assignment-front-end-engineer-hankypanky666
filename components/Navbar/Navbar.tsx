@@ -1,5 +1,5 @@
 import { AppBar, Box, Toolbar } from "@material-ui/core";
-import AdbIcon from "@mui/icons-material/Adb";
+import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { Button, Typography } from "@mui/material";
@@ -15,7 +15,7 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
-          <AdbIcon />
+          <EmojiNatureIcon sx={{ mr: 1 }} fontSize="large" />
           <Typography
             variant="h6"
             noWrap
@@ -29,7 +29,7 @@ export default function Navbar() {
               textDecoration: "none",
             }}
           >
-            LOGO
+            Clubee
           </Typography>
 
           <div className={styles.links}>
